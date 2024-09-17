@@ -383,7 +383,7 @@
         const videoPlayer = document.getElementById("main-video");
         const loadingIndicator = document.querySelector(".loading-indicator");
         const thumbnails = document.querySelectorAll(".thumbnail");
-        window.scrollTo(0, 0);
+        
 
 
         // Hide the iframe and show loading indicator
@@ -404,6 +404,7 @@
           activeThumbnail.classList.add('active');
           currentIndex = videos.findIndex(video => video.id === videoId);
         }
+        window.scrollTo(0, 0);
       }
       function downloadVideo(videoId) {
   // Direct download link for the video
