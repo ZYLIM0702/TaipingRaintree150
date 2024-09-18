@@ -251,7 +251,7 @@
       alt="Logo"
       class="logo"
     />
-    <div class="title">150个二十四节令鼓大汇演</div>
+    <div class="title" style="margin-bottom: 4px !important">150个二十四节令鼓大汇演</div>
     <div class="title">全国二十四节令鼓交流会</div>
 
     <div class="container">
@@ -543,7 +543,7 @@
         const videoPlayer = document.getElementById("main-video");
         const loadingIndicator = document.querySelector(".loading-indicator");
         const thumbnails = document.querySelectorAll(".thumbnail");
-
+        window.scrollTo(0, 0);
         // Hide the iframe and show loading indicator
         videoPlayer.style.display = "none";
         loadingIndicator.style.display = "block";
@@ -564,7 +564,7 @@
           activeThumbnail.classList.add("active");
           currentIndex = videos.findIndex((video) => video.id === videoId);
         }
-        window.scrollTo(0, 0);
+        
       }
 
       function downloadVideo(videoId) {
