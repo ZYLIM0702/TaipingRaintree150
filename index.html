@@ -5,404 +5,573 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta property="og:title" content="太平雨树文化节 | 全国二十四节令鼓交流会 | 视频" />
-<meta property="og:description" content="" />
-<meta property="og:image" content="https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/og.png" />
-<meta property="og:url" content="https://zylim0702.github.io/TaipingRaintree150/" />
-<meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="太平雨树文化节 | 全国二十四节令鼓交流会 | 视频"
+    />
+    <meta property="og:description" content="" />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/og.png"
+    />
+    <meta
+      property="og:url"
+      content="https://zylim0702.github.io/TaipingRaintree150/"
+    />
+    <meta property="og:type" content="website" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
     <title>太平雨树文化节 | 全国二十四节令鼓交流会</title>
     <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #000000;
+        color: #fff;
+        font-family: "Ma Shan Zheng", cursive;
+        margin: 0;
+        padding: 20px;
+        position: relative;
+      }
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        opacity: 0.2;
+        z-index: -1;
+      }
+      .container {
+        width: 80%;
+        padding: 20px;
+      }
+      .logo {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+      }
+      .title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+      .video-player {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        position: relative;
+      }
+      .video-player iframe {
+        width: 900px;
+        height: 506px;
+        border: none;
+        background-color: black;
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+      }
+      .video-player .loading-indicator {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 20px;
+        display: none; /* Initially hidden */
+      }
+      .video-list {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      .thumbnails {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        align-content: space-between;
+        justify-content: center;
+      }
+      .thumbnail {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        border-radius: 15px;
+        overflow: hidden;
+        cursor: pointer;
+        background-color: #000;
+        transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+      }
+      .thumbnail-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+      }
+      .thumbnail::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80%;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 100%
+        );
+        border-radius: 15px;
+        z-index: 1;
+      }
+      .episode-title-large,
+      .episode-title {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        font-size: 17px;
+        padding: 5px;
+        border-radius: 5px;
+        font-weight: bold;
+        z-index: 2;
+      }
+      .episode-title-large {
+        font-size: 28px;
+        bottom: 30px;
+      }
+      .thumbnail:hover {
+        transform: scale(1.05);
+      }
+      .thumbnail.active {
+        border: 2px solid transparent;
+        background-color: white;
+      }
+      h2 {
+        font-size: 35px;
+      }
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        width: 800px;
+        margin-top: 20px;
+      }
+      .control-button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .control-button:hover {
+        background-color: #555;
+      }
+      /* Mobile styles */
+      @media (max-width: 768px) {
         body {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          background-color: #000000;
-          color: #fff;
-          font-family: "Ma Shan Zheng", cursive;
-          margin: 0;
-          padding: 20px;
-          position: relative;
-        }
-        body::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/background.jpg');
-          background-size: cover;
-          background-position: center;
-          background-attachment: fixed;
-          background-repeat: no-repeat;
-          opacity: 0.2;
-          z-index: -1;
+          padding: 10px;
         }
         .container {
-          width: 80%;
-          padding: 20px;
-        }
-        .logo {
-          width: 100%;
-          max-width: 300px;
-          margin-bottom: 20px;
-        }
-        .title {
-          text-align: center;
-          margin-bottom: 20px;
-          font-size: 1.5rem;
-        }
-        .video-player {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          margin-bottom: 20px;
-          position: relative;
-        }
-        .video-player iframe {
-          width: 900px;
-          height: 506px;
-          border: none;
-          background-color: black;
-          border-radius: 15px;
-          box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-        }
-        .video-player .loading-indicator {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          color: #fff;
-          font-size: 20px;
-          display: none; /* Initially hidden */
-        }
-        .video-list {
-          width: 100%;
-          align-items: center;
-          text-align: center;
-          padding-top: 20px;
-          padding-bottom: 20px;
-        }
-        .thumbnails {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 15px;
-          align-content: space-between;
-          justify-content: center;
+          width: 99%;
+          padding: 0%;
         }
         .thumbnail {
-          position: relative;
-          width: 300px;
+          width: 45%;
+          height: 150px;
+        }
+        .video-player iframe {
+          width: 100%;
           height: 200px;
-          border-radius: 15px;
-          overflow: hidden;
-          cursor: pointer;
-          background-color: #000;
-          transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
-        }
-        .thumbnail-img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-size: cover;
-          background-position: center;
-          border-radius: 15px;
-        }
-        .thumbnail::before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 80%;
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
-          border-radius: 15px;
-          z-index: 1;
         }
         .episode-title-large,
         .episode-title {
           position: absolute;
           bottom: 10px;
           left: 10px;
-          color: white;
-          font-size: 17px;
+          color: rgb(255, 255, 255);
+          font-size: 12px;
           padding: 5px;
           border-radius: 5px;
           font-weight: bold;
-          z-index: 2;
+          z-index: 10;
         }
         .episode-title-large {
-          font-size: 28px;
+          font-size: 20px;
           bottom: 30px;
         }
-        .thumbnail:hover {
-          transform: scale(1.05);
-        }
-        .thumbnail.active {
-          border: 2px solid transparent;
-          background-color: white;
-        }
         h2 {
-          font-size: 35px;
+          margin-top: -10px;
+          font-size: 25px;
         }
-        .controls {
-          display: flex;
-          justify-content: space-between;
-          width: 800px;
-          margin-top: 20px;
-        }
-        .control-button {
-          background-color: #333;
-          color: #fff;
-          border: none;
-          padding: 10px 20px;
-          cursor: pointer;
-          border-radius: 5px;
-          font-size: 16px;
-        }
-        .control-button:hover {
-          background-color: #555;
-        }
-        /* Mobile styles */
-        @media (max-width: 768px) {
-          body {
-            padding: 10px;
-          }
-          .container {
-            width: 99%;
-            padding: 0%;
-          }
-          .thumbnail {
-            width: 45%;
-            height: 150px;
-          }
-          .video-player iframe {
-            width: 100%;
-            height: 200px;
-          }
-          .episode-title-large,
-          .episode-title {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            color: rgb(255, 255, 255);
-            font-size: 12px;
-            padding: 5px;
-            border-radius: 5px;
-            font-weight: bold;
-            z-index: 10;
-          }
-          .episode-title-large {
-            font-size: 20px;
-            bottom: 30px;
-          }
-          h2 {
-            margin-top: -10px;
-            font-size: 25px;
-          }
-        }
-        .download-icon {
-          position: absolute;
-          bottom: 10px;
-          right: 10px;
-          background-color: #ffffffba;
-          color: #000;
-          border: none;
-          padding: 5px;
-          cursor: pointer;
-          border-radius: 30px;
-          font-size: 16px;
-          z-index: 3;
-          transition: background-color 0.3s ease;
-        }
-        .download-icon:hover {
-          background-color: #ddd;
-        }
-      </style>  </head>
+      }
+      .download-icon {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #ffffffba;
+        color: #000;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 30px;
+        font-size: 16px;
+        z-index: 3;
+        transition: background-color 0.3s ease;
+      }
+      .download-icon:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
   <body>
-    <img src="https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/logo.png" alt="Logo" class="logo" />
+    <img
+      src="https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/logo.png"
+      alt="Logo"
+      class="logo"
+    />
     <div class="title">150个二十四节令鼓大汇演</div>
     <div class="title">全国二十四节令鼓交流会</div>
 
     <div class="container">
       <div class="video-player">
         <div class="loading-indicator">Loading...</div>
-        <iframe id="main-video" src="https://www.youtube.com/embed/nID2dRphrGU"  allowfullscreen></iframe>
+        <iframe
+          id="main-video"
+          src="https://www.youtube.com/embed/nID2dRphrGU"
+          allowfullscreen
+        ></iframe>
       </div>
       <div class="video-list">
-        <h2 >节目选项</h2>
+        <h2>节目选项</h2>
         <div class="thumbnails">
-            <div class="thumbnail" onclick="playVideo('8rRdUnGDmT0')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/039.jpg');"></div>
-                <div class="episode-title-large">大会仪式</div>
-                <div class="download-icon" onclick="downloadVideo('1kbKjRqlLzVAi62y_cxmnCG78kSs7JWo-')">
-                    <i class="fas fa-download"></i>
-                </div>
+          <div class="thumbnail" onclick="playVideo('8rRdUnGDmT0')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/039.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">大会仪式</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1kbKjRqlLzVAi62y_cxmnCG78kSs7JWo-')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('s0RoV9gjv0U')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/044.jpg');"></div>
-                <div class="episode-title-large">绽</div>
-                <div class="episode-title">新山鼓队</div>
-                <div class="download-icon" onclick="downloadVideo('17am9WJ7YhkTK-IOlXesRzCnfthJKWLr5')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('s0RoV9gjv0U')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/044.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">绽</div>
+            <div class="episode-title">新山鼓队</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('17am9WJ7YhkTK-IOlXesRzCnfthJKWLr5')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('GigA8zgHqSM')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/071.jpg');"></div>
-                <div class="episode-title-large">古之森灵</div>
-                <div class="episode-title">太平华联一校</div>
-                <div class="download-icon" onclick="downloadVideo('1k5Tu-mJKQkZE3GD_Z4aeOyYz1eGnAlMB')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('GigA8zgHqSM')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/071.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">古之森灵</div>
+            <div class="episode-title">太平华联一校</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1k5Tu-mJKQkZE3GD_Z4aeOyYz1eGnAlMB')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('H8sAbPyNj7E')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/079.jpg');"></div>
-                <div class="episode-title-large">桃花朵朵开</div>
-                <div class="episode-title">太平华联幼儿园</div>
-                <div class="download-icon" onclick="downloadVideo('12m87xmYYCe9dILk4Bq3Y-gCTCRcLiJJJ')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('H8sAbPyNj7E')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/079.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">桃花朵朵开</div>
+            <div class="episode-title">太平华联幼儿园</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('12m87xmYYCe9dILk4Bq3Y-gCTCRcLiJJJ')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('bZ9Cg1iC3dI')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/086.jpg');"></div>
-                <div class="episode-title-large">童趣</div>
-                <div class="episode-title">太平华联三校</div>
-                <div class="download-icon" onclick="downloadVideo('1VXDXcvv3T7k-tmwr_BRU0arZNSx1HDO6')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('bZ9Cg1iC3dI')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/086.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">童趣</div>
+            <div class="episode-title">太平华联三校</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1VXDXcvv3T7k-tmwr_BRU0arZNSx1HDO6')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('wo4YJ1imSZE')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/112.jpg');"></div>
-                <div class="episode-title-large">破浪</div>
-                <div class="episode-title">太平华联二校</div>
-                <div class="download-icon" onclick="downloadVideo('1xl9E30dYEouPKpgTBM2EEHeFe_8KQ6sH')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('wo4YJ1imSZE')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/112.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">破浪</div>
+            <div class="episode-title">太平华联二校</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1xl9E30dYEouPKpgTBM2EEHeFe_8KQ6sH')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('zOCB50cz9Eo')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/117.jpg');"></div>
-                <div class="episode-title-large">小草</div>
-                <div class="episode-title">太平华联三校</div>
-                <div class="download-icon" onclick="downloadVideo('1GbCnHIMrUVOrfFhvGjW5Sg-q9JPqeo4t')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('zOCB50cz9Eo')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/117.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">小草</div>
+            <div class="episode-title">太平华联三校</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1GbCnHIMrUVOrfFhvGjW5Sg-q9JPqeo4t')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('m3HbswwQK1U')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/144.jpg');"></div>
-                <div class="episode-title-large">月光光</div>
-                <div class="episode-title">太平华联一校</div>
-                <div class="download-icon" onclick="downloadVideo('1mna4V5-Gu5s6-6NAW_fKfXR6czPKVYk9')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('m3HbswwQK1U')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/144.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">月光光</div>
+            <div class="episode-title">太平华联一校</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1mna4V5-Gu5s6-6NAW_fKfXR6czPKVYk9')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('1dYp7nvC5CU')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/148.jpg');"></div>
-                <div class="episode-title-large">春三月</div>
-                <div class="episode-title">太平华联二校</div>
-                <div class="download-icon" onclick="downloadVideo('1hhGawnZ3hESVFz3PybSeKjifNzFN9qov')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('1dYp7nvC5CU')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/148.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">春三月</div>
+            <div class="episode-title">太平华联二校</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1hhGawnZ3hESVFz3PybSeKjifNzFN9qov')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('YpQaVHqWLC4')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/171.jpg');"></div>
-                <div class="episode-title-large">初</div>
-                <div class="episode-title">赛城联合国民型华文小学</div>
-                <div class="download-icon" onclick="downloadVideo('1-BjRFMxVRVHm-XbyhcBkvtYZOKT_v4dD')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('YpQaVHqWLC4')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/171.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">初</div>
+            <div class="episode-title">赛城联合国民型华文小学</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1-BjRFMxVRVHm-XbyhcBkvtYZOKT_v4dD')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('JMJfoIfOHPs')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/174.jpg');"></div>
-                <div class="episode-title-large">唤</div>
-                <div class="episode-title">华都中学</div>
-                <div class="download-icon" onclick="downloadVideo('1Ap4fdE12-WuJIiXY8nWXIl4fILxqMHMa')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('JMJfoIfOHPs')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/174.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">唤</div>
+            <div class="episode-title">华都中学</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1Ap4fdE12-WuJIiXY8nWXIl4fILxqMHMa')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('AVPF4BZlkKY')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/201.jpg');"></div>
-                <div class="episode-title-large">修罗传奇</div>
-                <div class="episode-title">太平华联中学</div>
-                <div class="download-icon" onclick="downloadVideo('1Pxo1TqJriwfzNCZDdVG71KOQIyC9f0HU')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('AVPF4BZlkKY')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/201.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">修罗传奇</div>
+            <div class="episode-title">太平华联中学</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1Pxo1TqJriwfzNCZDdVG71KOQIyC9f0HU')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('WDnkNQWBLCg')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/214.jpg');"></div>
-                <div class="episode-title-large">梦行云</div>
-                <div class="episode-title">太平华联华中</div>
-                <div class="download-icon" onclick="downloadVideo('16Bgea0oJ-zbS0mtZRqGYYGGn0dx44P9y')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('WDnkNQWBLCg')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/214.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">梦行云</div>
+            <div class="episode-title">太平华联华中</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('16Bgea0oJ-zbS0mtZRqGYYGGn0dx44P9y')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('pISmehUi6f4')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/226.jpg');"></div>
-                <div class="episode-title-large">雨城</div>
-                <div class="episode-title">太平华联中学</div>
-                <div class="download-icon" onclick="downloadVideo('1oOkKvSRzUZVDhzjRfu9USYYwL3k-N5IW')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('pISmehUi6f4')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/226.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">雨城</div>
+            <div class="episode-title">太平华联中学</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1oOkKvSRzUZVDhzjRfu9USYYwL3k-N5IW')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('plQYoQIpVDA')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/248.jpg');"></div>
-                <div class="episode-title-large">燃</div>
-                <div class="episode-title">太平华联华中</div>
-                <div class="download-icon" onclick="downloadVideo('1_-D-VZulGAyzpqP_MPq1xmdYSF6xsfUq')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('plQYoQIpVDA')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/248.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">燃</div>
+            <div class="episode-title">太平华联华中</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1_-D-VZulGAyzpqP_MPq1xmdYSF6xsfUq')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('izItkemzbxY')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/255.jpg');"></div>
-                <div class="episode-title-large">谢幕仪式</div>
-                <div class="download-icon" onclick="downloadVideo('1XCp_FtwE1FZIqzgoDVX5AL7Xs4SOD-ea')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('izItkemzbxY')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/255.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">谢幕仪式</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('1XCp_FtwE1FZIqzgoDVX5AL7Xs4SOD-ea')"
+            >
+              <i class="fas fa-download"></i>
             </div>
-            <div class="thumbnail" onclick="playVideo('nID2dRphrGU')">
-                <div class="thumbnail-img" style="background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/thumbnail.jpg');"></div>
-                <div class="episode-title-large">150个二十四节令鼓大汇演</div>
-                <div class="download-icon" onclick="downloadVideo('13vOeThwLzmP3GBjcSaI3fpN2kAHMQED2')">
-                    <i class="fas fa-download"></i>
-                </div>
+          </div>
+          <div class="thumbnail" onclick="playVideo('nID2dRphrGU')">
+            <div
+              class="thumbnail-img"
+              style="
+                background-image: url('https://raw.githubusercontent.com/ZYLIM0702/TaipingRaintree150/main/thumbnail.jpg');
+              "
+            ></div>
+            <div class="episode-title-large">150个二十四节令鼓大汇演</div>
+            <div
+              class="download-icon"
+              onclick="downloadVideo('13vOeThwLzmP3GBjcSaI3fpN2kAHMQED2')"
+            >
+              <i class="fas fa-download"></i>
             </div>
+          </div>
         </div>
       </div>
     </div>
     <script>
-      
+      function playVideo(videoId, thumbnail) {
+        const videoPlayer = document.getElementById("main-video");
+        const loadingIndicator = document.querySelector(".loading-indicator");
+        const thumbnails = document.querySelectorAll(".thumbnail");
 
-      function playVideo(videoId) {
-    const videoPlayer = document.getElementById("main-video");
-    const loadingIndicator = document.querySelector(".loading-indicator");
+        // Hide the iframe and show loading indicator
+        videoPlayer.style.display = "none";
+        loadingIndicator.style.display = "block";
 
-    // Hide the iframe and show loading indicator
-    videoPlayer.style.display = "none";
-    loadingIndicator.style.display = "block";
+        // Update the video source and show iframe
+        videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        videoPlayer.onload = () => {
+          loadingIndicator.style.display = "none";
+          videoPlayer.style.display = "block";
+        };
 
-    // Update the video source and show iframe
-    videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    videoPlayer.onload = () => {
-        loadingIndicator.style.display = "none";
-        videoPlayer.style.display = "block";
-    };
-    window.scrollTo(0, 0);
-}
+        // Update active thumbnail
+        thumbnails.forEach((thumbnail) => thumbnail.classList.remove("active"));
+        const activeThumbnail = Array.from(thumbnails).find((thumbnail) =>
+          thumbnail.getAttribute("onclick").includes(videoId)
+        );
+        if (activeThumbnail) {
+          activeThumbnail.classList.add("active");
+          currentIndex = videos.findIndex((video) => video.id === videoId);
+        }
+        window.scrollTo(0, 0);
+      }
 
       function downloadVideo(videoId) {
-  // Direct download link for the video
-  const downloadLink = `https://drive.google.com/uc?export=download&id=${videoId}`;
-  window.location.href = downloadLink;
-}
-
+        // Direct download link for the video
+        const downloadLink = `https://drive.google.com/uc?export=download&id=${videoId}`;
+        window.location.href = downloadLink;
+      }
     </script>
   </body>
 </html>
